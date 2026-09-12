@@ -1,0 +1,72 @@
+generated: '2026-09-12'
+method: searched
+source: https://en.wikipedia.org/wiki/Rec_Room_(video_game)
+provider: Against Gravity Corp (renamed Rec Room Inc.)
+status: decommissioned
+
+summary: >-
+  Against Gravity / Rec Room ran a real, first-party developer program — an Azure API Management
+  developer portal at devportal.rec.net that issued subscription keys (Ocp-Apim-Subscription-Key
+  header, or subscription-key query parameter) against the api.rec.net host, with a published
+  third-party API access and usage policy in the company help center. The whole surface was
+  decommissioned with the service. This artifact records the end-of-life, not an active lifecycle
+  policy: there is no versioning policy, deprecation policy, SLA or status page left to harvest,
+  because there is no longer a running API.
+
+end_of_life:
+  announced: '2026-03-30'
+  service_shutdown: '2026-06-01'
+  service_shutdown_note: Game servers went offline at 12:00 Pacific.
+  community_site_shutdown: '2026-06-09'
+  community_site: https://rec.net
+  stated_reason: >-
+    The company said it never found a path to sustainable profitability despite serving more than
+    150 million players; costs consistently exceeded revenue.
+  asset_disposition: >-
+    GeekWire reported that Snap Inc. acquired select assets and absorbed some Rec Room engineers
+    into its Specs Inc. AR-glasses subsidiary. Not independently verified here.
+  sources:
+  - https://en.wikipedia.org/wiki/Rec_Room_(video_game)
+  - https://www.geekwire.com/2026/rec-room-shutting-down-seattles-3-5b-social-gaming-platform-says-it-cant-make-the-business-work/
+
+decommissioned_surfaces:
+- surface: Developer portal
+  host: devportal.rec.net
+  kind: Azure API Management developer portal
+  evidence: >-
+    The CNAME record still exists and points at rr-apim-prod-001.developer.azure-api.net, but that
+    target no longer resolves (NXDOMAIN) — the APIM instance was deleted. A dangling CNAME is the
+    observable fossil of the portal.
+  probed: '2026-09-12'
+  observed: NXDOMAIN
+- surface: API host
+  host: api.rec.net
+  kind: REST API behind Azure API Management subscription keys
+  evidence: >-
+    DNS still resolves to Cloudflare (104.21.38.138 / 172.67.223.44) but every HTTPS connection is
+    answered with TLS alert 40 (handshake_failure) and no peer certificate. Port 80 returns 403.
+  probed: '2026-09-12'
+  observed: TLS handshake_failure, no certificate
+- surface: Community site
+  host: rec.net
+  kind: Consumer/creator web portal
+  evidence: Same TLS alert 40 with no peer certificate as api.rec.net.
+  probed: '2026-09-12'
+  observed: TLS handshake_failure, no certificate
+- surface: Marketing site
+  host: recroom.com
+  kind: Squarespace marketing site
+  evidence: >-
+    Still served (HTTP 200, TLSv1.3, certificate valid to 2026-10-18) with pre-shutdown marketing
+    copy and no sunset notice. Terms of service, privacy policy, careers, press and the ship-notes
+    patch-notes blog all still return 200.
+  probed: '2026-09-12'
+  observed: live
+
+versioning_policy: null
+deprecation_policy: null
+sla: null
+status_page: null
+notes: >-
+  No Deprecation or StatusPage pointer is emitted. The company published an end-of-service
+  announcement, not a deprecation policy, and no status page survives.

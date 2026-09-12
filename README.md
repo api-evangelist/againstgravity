@@ -64,5 +64,24 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Againstgravity is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
+Against Gravity Corp was the Seattle software company founded in April 2016 that built **Rec Room**, a
+cross-platform social gaming and user-generated-content world. The company later renamed itself **Rec Room
+Inc.**, which this network tracks separately at [`api-evangelist/rec-room`](https://github.com/api-evangelist/rec-room) —
+this repository preserves the former corporate name as surfaced through the secondary-market harvest backlog
+and should be merged into or superseded by that record.
+
+Rec Room announced on 2026-03-30 that it could not reach profitability, took its game servers offline on
+2026-06-01 and shut the rec.net community site down on 2026-06-09.
+
+**API posture: decommissioned.** The company did run a real developer program — an Azure API Management
+developer portal at `devportal.rec.net` issuing subscription keys against `api.rec.net`. Probed 2026-09-12:
+
+| Host | Observed |
+|---|---|
+| `devportal.rec.net` | dangling CNAME to `rr-apim-prod-001.developer.azure-api.net` (NXDOMAIN) |
+| `api.rec.net` | TLS alert 40 handshake_failure, no peer certificate |
+| `rec.net` | TLS alert 40 handshake_failure, no peer certificate |
+| `recroom.com` | HTTP 200 — legacy Squarespace marketing site, 404 on every spec and `/.well-known/` path |
+
+- https://recroom.com
 - https://equityzen.com/company/againstgravity

@@ -1,17 +1,51 @@
 aid: againstgravity
-name: Againstgravity
-description: 'Againstgravity is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/againstgravity.png
+name: Against Gravity
+description: 'Against Gravity Corp was the Seattle software company founded in April 2016 by Nick Fajt,
+  Cameron Brown, Dan Kroymann, Bilal Orhan, Josh Wehrly and John Bevis that built Rec Room, a cross-platform
+  social gaming and user-generated-content world for PC, PlayStation, Xbox, Meta Quest, iOS and Android.
+  The company later renamed itself Rec Room Inc. and is tracked in this network under the rec-room record.
+  Rec Room announced on 2026-03-30 that it could not reach profitability, took its game servers offline on
+  2026-06-01 and shut the rec.net community site down on 2026-06-09. It did run a real developer program:
+  an Azure API Management developer portal at devportal.rec.net issuing subscription keys against
+  api.rec.net. Both are gone — devportal.rec.net is a dangling CNAME to a deleted APIM instance and
+  rec.net / api.rec.net answer TLS handshake_failure with no certificate. Only the legacy Squarespace
+  marketing site at recroom.com is still served, so no live contract remains to harvest.'
 url: https://raw.githubusercontent.com/api-evangelist/againstgravity/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+x-tier-reason: defunct-no-api-surface
+x-status: defunct
+x-status-detail: Rec Room Inc. (formerly Against Gravity Corp) announced closure 2026-03-30, took game
+  servers offline 2026-06-01 12:00 PT and shut rec.net down 2026-06-09. GeekWire reported Snap Inc.
+  acquired select assets and absorbed some engineers into its Specs Inc. subsidiary. The developer
+  portal (devportal.rec.net, Azure API Management) and the API host (api.rec.net) were decommissioned
+  with the service.
+x-shutdown-date: '2026-06-01'
+x-former-name: Against Gravity Corp
+x-renamed-to: rec-room
+x-duplicate-of: rec-room
+x-duplicate-evidence: >-
+  Against Gravity Corp is the former legal name of Rec Room Inc. (Wikipedia: "Rec Room Inc., formerly
+  known as Against Gravity Corp"). The network already carries all/rec-room/ (aid rec-room, created
+  2026-07-17, sourced from the index-ventures portfolio) for the same company. This record was created
+  independently from the secondary-market harvest backlog under the pre-rename name and should be
+  merged into or superseded by rec-room rather than scored as a second company.
+x-api-posture: decommissioned
+x-api-posture-basis: observed
+specificationVersion: '0.23'
 created: '2026-09-12'
 modified: '2026-09-12'
 tags:
 - Company
+- Gaming
+- Virtual Reality
+- Social Platform
+- User Generated Content
+- Metaverse
+- Entertainment
+- Defunct
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +53,45 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/againstgravity-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/againstgravity
+  url: https://recroom.com
+- type: TermsOfService
+  url: https://recroom.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://recroom.com/privacy-policy
+- type: Blog
+  url: https://recroom.com/ship-notes
+- type: Support
+  url: https://recroom.zendesk.com/hc/en-us
+- type: Lifecycle
+  url: lifecycle/againstgravity-lifecycle.yml
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Rec Room Inc. (formerly Against Gravity Corp) shut its service down on 2026-06-01 and rec.net on
+    2026-06-09; its Azure API Management developer portal devportal.rec.net is now a dangling CNAME to
+    the deleted instance rr-apim-prod-001.developer.azure-api.net, and both rec.net and api.rec.net
+    answer TLS alert 40 with no certificate, so the only host still served is the legacy recroom.com
+    Squarespace marketing site, which 404s on every spec and /.well-known/ path.
+  evidence:
+  - url: https://devportal.rec.net/apis
+    status: 0
+  - url: https://api.rec.net/swagger/v1/swagger.json
+    status: 0
+  - url: https://rec.net/
+    status: 0
+  - url: https://recroom.com/openapi.json
+    status: 404
+  - url: https://recroom.com/.well-known/api-catalog
+    status: 404
+  - url: https://recroom.com/
+    status: 200
+  checked: '2026-09-12'
+x-enrichment:
+  date: '2026-09-12'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3

@@ -1,0 +1,177 @@
+generated: '2026-09-12'
+method: probed
+source: live HTTPS probes of the named /.well-known/ path list on every host this record knows
+summary: No /.well-known/ document is served on any Against Gravity / Rec Room host. The two hosts that
+  are still reachable (recroom.com and www.recroom.com, a legacy Squarespace marketing site) 404 on every
+  path; the product hosts rec.net and api.rec.net present no TLS certificate at all, and the developer
+  portal host devportal.rec.net is a dangling CNAME to a deleted Azure API Management instance. This file
+  records an ABSENCE — no WellKnown or SecurityTxt pointer is emitted.
+pointer_emitted: false
+pointer_reason: Every probed path returned 404 or was unreachable; a WellKnown pointer would assert a
+  surface the provider does not serve.
+hosts:
+- host: recroom.com
+  note: Legacy Squarespace marketing site, still served. Every /.well-known/ path returns 404 (Squarespace's
+    HTML 404 page, 64,121 bytes) — no document is published.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: www.recroom.com
+  note: CNAME to ext-cust.squarespace.com; redirects to recroom.com. Same 404s.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: rec.net
+  note: 'Community/product host. DNS still resolves to Cloudflare (172.67.223.44 / 104.21.38.138) but
+    the TLS handshake fails with alert 40 (handshake_failure) and no peer certificate — the zone has no
+    certificate since the 2026-06-09 shutdown. Not a blocked probe: a control fetch of https://www.cloudflare.com/
+    from the same client returned 200.'
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+- host: api.rec.net
+  note: API host behind the Azure APIM developer portal. Same TLS alert 40 / no peer certificate as rec.net.
+    Port 80 returns 403. Decommissioned.
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: TLS handshake_failure (alert 40), no peer certificate
+- host: devportal.rec.net
+  note: Azure API Management developer portal. The CNAME record survives and points at rr-apim-prod-001.developer.azure-api.net,
+    but that target is NXDOMAIN — the APIM instance was deleted. Dangling CNAME.
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+    error: DNS NXDOMAIN
