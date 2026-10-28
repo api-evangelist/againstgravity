@@ -1,4 +1,4 @@
-# Againstgravity
+# Against Gravity
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,24 +64,48 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Against Gravity Corp was the Seattle software company founded in April 2016 that built **Rec Room**, a
-cross-platform social gaming and user-generated-content world. The company later renamed itself **Rec Room
-Inc.**, which this network tracks separately at [`api-evangelist/rec-room`](https://github.com/api-evangelist/rec-room) —
-this repository preserves the former corporate name as surfaced through the secondary-market harvest backlog
-and should be merged into or superseded by that record.
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
 
-Rec Room announced on 2026-03-30 that it could not reach profitability, took its game servers offline on
-2026-06-01 and shut the rec.net community site down on 2026-06-09.
+Against Gravity Corp was the Seattle software company founded in April 2016 by Nick Fajt, Cameron Brown, Dan Kroymann, Bilal Orhan, Josh Wehrly and John Bevis that built Rec Room, a cross-platform social gaming and user-generated-content world for PC, PlayStation, Xbox, Meta Quest, iOS and Android. The company later renamed itself Rec Room Inc. and is tracked in this network under the rec-room record. Rec Room announced on 2026-03-30 that it could not reach profitability, took its game servers offline on 2026-06-01 and shut the rec.net community site down on 2026-06-09. It did run a real developer program: an Azure API Management developer portal at devportal.rec.net issuing subscription keys against api.rec.net. Both are gone — devportal.rec.net is a dangling CNAME to a deleted APIM instance and rec.net / api.rec.net answer TLS handshake_failure with no certificate. Only the legacy Squarespace marketing site at recroom.com is still served, so no live contract remains to harvest.
 
-**API posture: decommissioned.** The company did run a real developer program — an Azure API Management
-developer portal at `devportal.rec.net` issuing subscription keys against `api.rec.net`. Probed 2026-09-12:
+**Areas:** Company · Gaming · Virtual Reality · Social Platform · User Generated Content · Metaverse · Entertainment · Defunct
 
-| Host | Observed |
-|---|---|
-| `devportal.rec.net` | dangling CNAME to `rr-apim-prod-001.developer.azure-api.net` (NXDOMAIN) |
-| `api.rec.net` | TLS alert 40 handshake_failure, no peer certificate |
-| `rec.net` | TLS alert 40 handshake_failure, no peer certificate |
-| `recroom.com` | HTTP 200 — legacy Squarespace marketing site, 404 on every spec and `/.well-known/` path |
+## Against Gravity on APIs.io (historical record)
 
-- https://recroom.com
-- https://equityzen.com/company/againstgravity
+Everything profiled for Against Gravity is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/againstgravity/](https://apis.io/providers/againstgravity/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Againstgravity Domain Security](https://apis.io/security/againstgravity/againstgravity-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://recroom.com)
+- [Support](https://recroom.zendesk.com/hc/en-us)
+- [Blog](https://recroom.com/ship-notes)
+- [Terms of service](https://recroom.com/terms-of-service)
+- [Privacy policy](https://recroom.com/privacy-policy)
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Against Gravity: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/againstgravity/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
